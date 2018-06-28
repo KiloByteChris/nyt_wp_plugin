@@ -47,6 +47,11 @@ class NYT_Top_Stories extends WP_Widget {
 		if ( ! empty( $instance['title'] ) ) {
 			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ). $args['after_title'];
 		}
+        echo "<div class='nytTopStoriesDiv'";
+        echo "<div>";
+        // wp_enqueue_script( 'muffuletta-navigation', get_template_directory_uri() . 'js/nyt.js', array(), '20151215', true );
+        wp_enqueue_script( 'nyt_api_call', plugin_dir_url( __FILE__ ) . '//js/nyt.js', true );
+
 	}
 	/**
 	 * Back-end widget form.
