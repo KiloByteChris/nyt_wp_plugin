@@ -12,7 +12,6 @@ jQuery(document).ready(function(){
     }).done(function(data) {
         // select the div where the infomrtion will be displayed
         var artSection = jQuery('.nytTopStoriesDiv');
-        console.log(data);
         /*
             Function takes the nyt data and builds a string to display the infromation
         */

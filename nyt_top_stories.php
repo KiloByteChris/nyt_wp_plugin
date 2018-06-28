@@ -47,11 +47,10 @@ class NYT_Top_Stories extends WP_Widget {
 		if ( ! empty( $instance['title'] ) ) {
 			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ). $args['after_title'];
 		}
-        echo "<div class='nytTopStoriesDiv'";
-        echo "<div>";
-        // wp_enqueue_script( 'muffuletta-navigation', get_template_directory_uri() . 'js/nyt.js', array(), '20151215', true );
-        wp_enqueue_script( 'nyt_api_call', plugin_dir_url( __FILE__ ) . '//js/nyt.js', true );
-
+        // Create an element to hold the nyt information
+        echo "<div class='nytTopStoriesDiv'></div>";
+        // Javascript to populate the element with information
+        wp_enqueue_script( 'nyt_api_call', plugin_dir_url( __FILE__ ) . '/js/nyt.js', true );
 	}
 	/**
 	 * Back-end widget form.
@@ -68,40 +67,11 @@ class NYT_Top_Stories extends WP_Widget {
 		else {
 			$title = __( 'New title', 'text_domain' );
 		}
-		if ( $instance[ 'icon' ] == 'on') {
-			$icon = $instance[ 'icon' ];
-			$iconCheck == "checked";
-		}
-		else {
-			$icon = "";
-			$iconCheck == "";
-		}
-		if ( isset( $instance[ 'description' ] ) ) {
-			$description = $instance[ 'description' ];
-		}
-		else {
-			$description = "";
-		}
-		if ( isset( $instance[ 'temp' ] ) ) {
-			$temp = $instance[ 'temp' ];
-		}
-		else {
-			$temp = "";
-		}
+
 		?>
 		<p>
 			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
-		</p>
-		<!-- Check boxes that allow for the user to choose what weather information to display -->
-		<h4>Display Options:</h4>
-		<p>
-			<label for="<?php echo $this->get_field_id( 'icon' ); ?>"><?php _e( 'Icon: ' ); ?></label>
-			<input class="widefat" id="<?php echo $this->get_field_id( 'icon' ); ?>" name="<?php echo $this->get_field_name( 'icon' ); ?>" type="checkbox" value="<?php echo esc_attr( 'on' );?>" <?php echo $iconCheck ?>>
-			<label for="<?php echo $this->get_field_id( 'description' ); ?>"><?php _e( 'Description: ' ); ?></label>
-			<input class="widefat" id="<?php echo $this->get_field_id( 'description' ); ?>" name="<?php echo $this->get_field_name( 'description' ); ?>" type="checkbox" value="<?php echo esc_attr( 'on' ); ?>">
-			<label for="<?php echo $this->get_field_id( 'temp' ); ?>"><?php _e( 'Tempurature: ' ); ?></label>
-			<input class="widefat" id="<?php echo $this->get_field_id( 'temp' ); ?>" name="<?php echo $this->get_field_name( 'temp' ); ?>" type="checkbox" value="<?php echo esc_attr( 'on' ); ?>">
 		</p>
 		<?php
 	}
@@ -118,9 +88,6 @@ class NYT_Top_Stories extends WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 		$instance = array();
 		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : 'off';
-		$instance['icon'] = ( ! empty( $new_instance['icon'] ) ) ? strip_tags( $new_instance['icon'] ) : 'off';
-		$instance['description'] = ( ! empty( $new_instance['description'] ) ) ? strip_tags( $new_instance['description'] ) : 'off';
-		$instance['temp'] = ( ! empty( $new_instance['temp'] ) ) ? strip_tags( $new_instance['temp'] ) : 'off';
 		return $instance;
 	}
 } // class My_Widget
