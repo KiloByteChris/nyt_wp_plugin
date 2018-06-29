@@ -1,0 +1,32 @@
+/*
+    Description: CSS for the New York Times Top Stories WordPress plugins
+    Author: Chris@new-volume
+    Website: new-volume.com
+*/
+
+.nytArticle {
+    border-top: 1px solid #000;
+    margin-bottom: 20px;
+}
+
+.nytImg {
+    height: auto;
+    margin-left: 20px;
+}
+
+.nytMainHeader {
+    font-size: 1.2em;
+}
+
+.storySection {
+    font-size: .9em;
+}
+
+.abstract {
+    font-size: 1em;
+}
+
+.byLine {
+    margin-top: 10px;
+    font-size: 1em;
+}

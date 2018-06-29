@@ -16,16 +16,16 @@ jQuery(document).ready(function(){
             Function takes the nyt data and builds a string to display the infromation
         */
         function displayNYTData(i, data) {
-            var displayString = "<article>";
+            var displayString = "<article class='nytArticle'>";
             // using moment.js, change the format of the date
             //var newDate = moment(data.results[i].created_date).format('YYYY MM DD');
+            displayString += "<h2 class='nytMainHeader'><a href="+ data.results[i].url +">"+data.results[i].title +" </a></h2>";
             // Check for an image
             if(typeof data.results[i].multimedia[0] !== 'undefined') {
-                displayString += "<img src="+ data.results[i].multimedia[0].url +" />";
+                displayString += "<img class='nytImg' src="+ data.results[i].multimedia[3].url +" />";
             }else{
-                displayString += "<img src='' />";
+                displayString += "<img class='nytImg' src='' />";
             }
-            displayString += "<h2><a href="+ data.results[i].url +">"+data.results[i].title +" </a></h2>";
             displayString += "<h3 class='storySection'>"+ data.results[i].section +"</h3>";
             displayString += "<p class='abstract'>"+ data.results[i].abstract +"</p>";
             //displayString += "<h3 class='date'>"+ newDate +"</h3>";
