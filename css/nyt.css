@@ -6,17 +6,18 @@
 
 .nytArticle {
     border-top: 1px solid #000;
+    border-radius: 0;
     margin-bottom: 15px;
 }
 
 .nytImg {
     height: auto;
-    margin: 20px 10px 0 20px;
 }
 
-.nytMainHeader, .storySection, .abstract, .byLine {
+.nytMainHeader, .storySection, .abstract, .byLine, .nytImg {
     margin-top: 0;
     margin-bottom: 0;
+    margin-left: 0;
 }
 
 .clearDiv {
@@ -25,6 +26,7 @@
 
 .nytMainHeader {
     font-size: 1.2em;
+    margin-left: 0px;
 }
 
 .storySection {
@@ -48,7 +50,7 @@
 
     .nytMainHeader, .storySection, .abstract, .byLine {
         float: left;
-        width: 55%;
+        width: 100%;
     }
 }
 
@@ -59,11 +61,11 @@
 
     .nytMainHeader, .storySection, .abstract, .byLine {
         float: left;
-        width: 60%;
+        width: 100%;
     }
 }
 
-@media screen and (min-width: 870px) {
+@media screen and (min-width: 1000px) {
     .nytImg {
         height: auto;
         margin: 20px 10px 0 0;
@@ -71,6 +73,28 @@
 
     .nytMainHeader, .storySection, .abstract, .byLine {
         float: left;
-        width: 70%;
+        width: 55%;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .nytImg {
+        height: auto;
+        margin: 20px 10px 0 0;
+    }
+
+    .nytMainHeader, .storySection, .abstract, .byLine {
+        float: left;
+        width: 60%;
+    }
+}
+@media screen and (min-width: 1400px) {
+    .nytImg {
+        height: auto;
+        margin: 20px 10px 0 0;
+    }
+
+    .nytMainHeader, .storySection, .abstract, .byLine {
+        float: left;
+        width: 65%;
     }
 }
