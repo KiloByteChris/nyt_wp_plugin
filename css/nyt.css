@@ -6,12 +6,21 @@
 
 .nytArticle {
     border-top: 1px solid #000;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .nytImg {
     height: auto;
-    margin-left: 20px;
+    margin: 20px 10px 0 20px;
+}
+
+.nytMainHeader, .storySection, .abstract, .byLine {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.clearDiv {
+    clear: both;
 }
 
 .nytMainHeader {
@@ -20,6 +29,7 @@
 
 .storySection {
     font-size: .9em;
+    margin-top: 0;
 }
 
 .abstract {
@@ -29,4 +39,38 @@
 .byLine {
     margin-top: 10px;
     font-size: 1em;
+}
+
+@media screen and (min-width: 600px) {
+    .nytImg {
+        margin: 20px 10px 0 0;
+    }
+
+    .nytMainHeader, .storySection, .abstract, .byLine {
+        float: left;
+        width: 55%;
+    }
+}
+
+@media screen and (min-width: 680px) {
+    .nytImg {
+        margin: 20px 10px 0 0;
+    }
+
+    .nytMainHeader, .storySection, .abstract, .byLine {
+        float: left;
+        width: 60%;
+    }
+}
+
+@media screen and (min-width: 870px) {
+    .nytImg {
+        height: auto;
+        margin: 20px 10px 0 0;
+    }
+
+    .nytMainHeader, .storySection, .abstract, .byLine {
+        float: left;
+        width: 70%;
+    }
 }

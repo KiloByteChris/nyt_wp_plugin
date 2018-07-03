@@ -47,10 +47,10 @@ class NYT_Top_Stories extends WP_Widget {
 		if ( ! empty( $instance['title'] ) ) {
 			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ). $args['after_title'];
 		}
+		// Create an element to hold the nyt information
+        echo "<div class='nytTopStoriesDiv'></div>";
         // Css for the plugins
         wp_enqueue_style('nyt style', plugin_dir_url( __FILE__ ) .'/css/nyt.css');
-        // Create an element to hold the nyt information
-        echo "<div class='nytTopStoriesDiv'></div>";
         // Javascript to populate the element with information
         wp_enqueue_script( 'nyt_api_call', plugin_dir_url( __FILE__ ) . '/js/nyt.js', true );
 	}

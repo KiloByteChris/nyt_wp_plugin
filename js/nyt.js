@@ -20,16 +20,17 @@ jQuery(document).ready(function(){
             // using moment.js, change the format of the date
             //var newDate = moment(data.results[i].created_date).format('YYYY MM DD');
             displayString += "<h2 class='nytMainHeader'><a href="+ data.results[i].url +">"+data.results[i].title +" </a></h2>";
+            displayString += "<h3 class='storySection'>"+ data.results[i].section +"</h3>";
+            displayString += "<p class='abstract'>"+ data.results[i].abstract +"</p>";
+            //displayString += "<h3 class='date'>"+ newDate +"</h3>";
+            displayString += "<h3 class='byLine'>"+ data.results[i].byline +"</h3>";
             // Check for an image
             if(typeof data.results[i].multimedia[0] !== 'undefined') {
                 displayString += "<img class='nytImg' src="+ data.results[i].multimedia[3].url +" />";
             }else{
                 displayString += "<img class='nytImg' src='' />";
             }
-            displayString += "<h3 class='storySection'>"+ data.results[i].section +"</h3>";
-            displayString += "<p class='abstract'>"+ data.results[i].abstract +"</p>";
-            //displayString += "<h3 class='date'>"+ newDate +"</h3>";
-            displayString += "<h3 class='byLine'>"+ data.results[i].byline +"</h3>";
+            displayString += "<div class='clearDiv'></div>";
             displayString += "</article>";
             artSection.append(displayString);
         }
